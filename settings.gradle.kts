@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "JustLearn"
+rootProject.name = "ComposeAppBase"
 include(":app")

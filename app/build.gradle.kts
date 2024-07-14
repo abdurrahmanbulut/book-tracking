@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.abdurrahmanbulut.justlearn"
+    namespace = "com.abdurrahmanbulut.composeAppBase"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.abdurrahmanbulut.justlearn"
+        applicationId = "com.abdurrahmanbulut.composeAppBase"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

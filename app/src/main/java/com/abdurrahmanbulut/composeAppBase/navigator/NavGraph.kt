@@ -1,4 +1,4 @@
-package com.abdurrahmanbulut.composeAppBase.navigator.screen
+package com.abdurrahmanbulut.composeAppBase.navigator
 
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.runtime.Composable
@@ -6,16 +6,16 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.abdurrahmanbulut.composeAppBase.navigator.screen.Screen
 import com.abdurrahmanbulut.composeAppBase.ui.main.home.HomeScreen
 import com.abdurrahmanbulut.composeAppBase.ui.splash.SplashScreen
 import com.abdurrahmanbulut.sherlock.navigation.EnterTransitionCallback
 import com.abdurrahmanbulut.sherlock.navigation.ExitTransitionCallback
 import com.abdurrahmanbulut.sherlock.navigation.Navigation
-import com.abdurrahmanbulut.sherlock.navigation.toNavArg
 
 fun NavGraphBuilder.navGraph() {
     screen(Screen.Splash.route) { SplashScreen() }
-    screen(Screen.Home.route) { HomeScreen(it.toNavArg()) }
+    screen(Screen.Home.route) { HomeScreen() }
 }
 
 fun NavGraphBuilder.screen(

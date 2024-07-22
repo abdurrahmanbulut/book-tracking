@@ -11,32 +11,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.abdurrahmanbulut.composeAppBase.R
 import com.abdurrahmanbulut.composeAppBase.navigator.screen.Screen
-import com.abdurrahmanbulut.composeAppBase.ui.LocalNavigator
+import com.abdurrahmanbulut.composeAppBase.ui.navigator
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 import kotlinx.coroutines.delay
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SplashScreen() {
-    val navigator = LocalNavigator.current
-    val viewModel: SplashViewModel = koinViewModel()
+    val navigator = navigator()
 
     LaunchedEffect(Unit) {
         delay(3000)
-        navigator.navigate(Screen.Home.route, TestData())
+        navigator.navigate(Screen.Home.route)
     }
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Content()
     }
 }
-
-data class TestData(
-    val a: Int = 5,
-    val b: String = "text123",
-    val c: Boolean = false,
-)
 
 @Composable
 fun Content() {

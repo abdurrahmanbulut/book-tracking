@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
     implementation(libs.lottie)
+    implementation(libs.androidx.constraintlayout)
 
     implementation(fileTree("../libs"))
 

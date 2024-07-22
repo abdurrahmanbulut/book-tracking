@@ -1,6 +1,8 @@
 package com.abdurrahmanbulut.composeAppBase.di
 
 import com.abdurrahmanbulut.composeAppBase.network.api.SplashApi
+import com.abdurrahmanbulut.sherlock.network.provideLoggingInterceptor
+import com.abdurrahmanbulut.sherlock.network.provideOkHttpClient
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -27,13 +29,3 @@ val apiModule =
         single { provideRetrofit(get()) }
         single { splashApi(get()) }
     }
-
-fun provideLoggingInterceptor(): CustomHttpLoggingInterceptor {
-    return CustomHttpLoggingInterceptor()
-}
-
-fun provideOkHttpClient(loggingInterceptor: CustomHttpLoggingInterceptor): OkHttpClient {
-    return OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .build()
-}

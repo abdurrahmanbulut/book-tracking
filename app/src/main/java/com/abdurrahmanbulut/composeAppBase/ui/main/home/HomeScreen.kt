@@ -8,15 +8,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.abdurrahmanbulut.composeAppBase.navigator.screen.LocalInsets
+import com.abdurrahmanbulut.composeAppBase.navigator.LocalInsets
 import com.abdurrahmanbulut.composeAppBase.ui.LocalNavigator
-import com.abdurrahmanbulut.composeAppBase.ui.splash.TestData
 import org.koin.androidx.compose.koinViewModel
-import org.koin.core.parameter.parametersOf
 
 @Composable
-fun HomeScreen(text: TestData?) {
-    val viewModel: HomeScreenVM = koinViewModel { parametersOf(text) }
+fun HomeScreen() {
+    val viewModel: HomeScreenVM = koinViewModel()
     val navigator = LocalNavigator.current
     val insets = LocalInsets.current
     Box(

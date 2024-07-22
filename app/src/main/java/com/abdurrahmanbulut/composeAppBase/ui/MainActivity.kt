@@ -11,15 +11,14 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.navigation.NavHostController
-import com.abdurrahmanbulut.composeAppBase.navigator.screen.AppNavigation
+import androidx.navigation.compose.rememberNavController
+import com.abdurrahmanbulut.composeAppBase.navigator.AppNavigation
 import com.abdurrahmanbulut.composeAppBase.ui.theme.ComposeAppBaseTheme
 import com.abdurrahmanbulut.sherlock.navigation.Navigator
-
 
 val LocalNavigator = staticCompositionLocalOf<Navigator> { error("No Navigator provided") }
 internal val LocalMainActivity = compositionLocalOf<MainActivity> { error("need CoreActivity") }
 internal val LocalNavHostController = compositionLocalOf<NavHostController> { error("need CoreActivity") }
-
 
 @Composable
 @ReadOnlyComposable
@@ -28,6 +27,7 @@ internal fun coreActivity() = LocalMainActivity.current
 @Composable
 @ReadOnlyComposable
 internal fun navigator() = LocalNavigator.current
+
 @Composable
 @ReadOnlyComposable
 internal fun navHostController() = LocalNavHostController.current
@@ -40,14 +40,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            navHostController = rememberNavController()
+            navigator = Navigator(navHostController)
+
             ComposeAppBaseTheme {
                 CompositionLocalProvider(
                     LocalMainActivity provides this,
                     LocalNavigator provides navigator,
-                    LocalNavHostController provides navHostController
+                    LocalNavHostController provides navHostController,
                 ) {
                     Surface {
-                        AppNavigation()
+                        AppNavigation(navHostController)
                     }
                 }
             }

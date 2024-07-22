@@ -6,20 +6,23 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.abdurrahmanbulut.composeAppBase.model.CatFact
 import com.abdurrahmanbulut.composeAppBase.network.repository.SplashRepository
-import com.abdurrahmanbulut.composeAppBase.ui.splash.TestData
-import com.abdurrahmanbulut.sherlock.network.ServiceResult
 
-class HomeScreenVM(private val splashRepository: SplashRepository, val data: TestData?) : ViewModel() {
+class HomeScreenVM(private val splashRepository: SplashRepository) : ViewModel() {
     val test = "Home Screen"
 
-    val catFact: MutableState<ServiceResult<CatFact>> = mutableStateOf(ServiceResult.Loading)
+    val catFact: MutableState<CatFact?> = mutableStateOf(null)
 
     init {
         getFacts()
-        println(data)
     }
 
     private fun getFacts() {
-        splashRepository.getFacts(viewModelScope, catFact)
+        splashRepository.getFacts(viewModelScope)
+            .success {
+                println(it)
+            }
+            .failure {
+                println(it)
+            }
     }
 }

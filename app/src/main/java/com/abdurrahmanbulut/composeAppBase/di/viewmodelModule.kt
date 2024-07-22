@@ -9,6 +9,6 @@ import org.koin.dsl.module
 val viewmodelModule =
     module {
         viewModel { SplashViewModel(get()) }
-        viewModel { p -> HomeScreenVM(get(), p[0]) }
+        viewModel { HomeScreenVM(get()) }
         viewModel { InsetsViewModel() }
     }

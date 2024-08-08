@@ -1,8 +1,8 @@
 package com.abdurrahmanbulut.composeAppBase.ui.main
 
 import androidx.lifecycle.ViewModel
-import com.abdurrahmanbulut.sherlock.events.createEvent
-import com.abdurrahmanbulut.sherlock.events.triggered
+import com.abdurrahmanbulut.composeAppBase.ui.utils.createEvent
+import com.abdurrahmanbulut.composeAppBase.ui.utils.triggered
 import com.abdurrahmanbulut.sherlock.navigation.Navigator
 
 class MainScreenVM : ViewModel() {

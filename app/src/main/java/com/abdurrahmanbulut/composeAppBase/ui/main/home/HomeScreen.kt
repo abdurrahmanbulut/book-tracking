@@ -10,10 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.abdurrahmanbulut.composeAppBase.navigator.LocalInsets
 import com.abdurrahmanbulut.composeAppBase.ui.LocalNavigator
+import com.abdurrahmanbulut.composeAppBase.ui.main.MainScreenVM
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(mainScreenVM: MainScreenVM) {
     val viewModel: HomeScreenVM = koinViewModel()
     val navigator = LocalNavigator.current
     val insets = LocalInsets.current

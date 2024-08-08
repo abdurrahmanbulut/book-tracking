@@ -7,7 +7,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.abdurrahmanbulut.composeAppBase.navigator.screen.Screen
-import com.abdurrahmanbulut.composeAppBase.ui.main.home.HomeScreen
+import com.abdurrahmanbulut.composeAppBase.ui.main.MainScreen
 import com.abdurrahmanbulut.composeAppBase.ui.splash.SplashScreen
 import com.abdurrahmanbulut.sherlock.navigation.EnterTransitionCallback
 import com.abdurrahmanbulut.sherlock.navigation.ExitTransitionCallback
@@ -15,7 +15,7 @@ import com.abdurrahmanbulut.sherlock.navigation.Navigation
 
 fun NavGraphBuilder.navGraph() {
     screen(Screen.Splash.route) { SplashScreen() }
-    screen(Screen.Home.route) { HomeScreen() }
+    screen(Screen.Main.route) { MainScreen() }
 }
 
 fun NavGraphBuilder.screen(

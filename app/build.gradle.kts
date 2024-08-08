@@ -70,6 +70,9 @@ dependencies {
     implementation(libs.lottie)
     implementation(libs.androidx.constraintlayout)
 
+    implementation(libs.datastore)
+
+
     implementation(fileTree("../libs"))
 
     val composeBom = platform(libs.androidx.compose.bom)

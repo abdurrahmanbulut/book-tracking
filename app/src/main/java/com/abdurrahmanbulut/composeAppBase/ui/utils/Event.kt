@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 @Composable
 fun HandleEvent(
     eventHandler: EventHandler<Unit>,
-    onTriggered: () -> Unit,
+    onTriggered: suspend () -> Unit,
 ) {
     LaunchedEffect(eventHandler.state.value) {
         if (eventHandler.state.value is Event.NoArgTriggered) {
@@ -19,7 +19,7 @@ fun HandleEvent(
 @Composable
 fun <T> HandleEvent(
     eventHandler: EventHandler<T>,
-    onTriggered: (T) -> Unit,
+    onTriggered: suspend (T) -> Unit,
 ) {
     LaunchedEffect(eventHandler.state.value) {
         if (eventHandler.state.value is Event.OneArgTriggered) {
@@ -32,7 +32,7 @@ fun <T> HandleEvent(
 @Composable
 fun <T1, T2> HandleEvent(
     eventHandler: EventHandler<Pair<T1, T2>>,
-    onTriggered: (T1, T2) -> Unit,
+    onTriggered: suspend (T1, T2) -> Unit,
 ) {
     LaunchedEffect(eventHandler.state.value) {
         if (eventHandler.state.value is Event.TwoArgTriggered) {
@@ -46,7 +46,7 @@ fun <T1, T2> HandleEvent(
 @Composable
 fun <T1, T2, T3> HandleEvent(
     eventHandler: EventHandler<Triple<T1, T2, T3>>,
-    onTriggered: (T1, T2, T3) -> Unit,
+    onTriggered: suspend (T1, T2, T3) -> Unit,
 ) {
     LaunchedEffect(eventHandler.state.value) {
         if (eventHandler.state.value is Event.ThreeArgTriggered) {

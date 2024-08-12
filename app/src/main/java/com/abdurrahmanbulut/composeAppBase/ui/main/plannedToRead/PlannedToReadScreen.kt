@@ -1,4 +1,4 @@
-package com.abdurrahmanbulut.composeAppBase.ui.main.home
+package com.abdurrahmanbulut.composeAppBase.ui.main.plannedToRead
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -15,8 +15,8 @@ import com.abdurrahmanbulut.composeAppBase.ui.main.MainScreenVM
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun HomeScreen(mainScreenVM: MainScreenVM) {
-    val viewModel: HomeScreenVM = koinViewModel()
+fun PlannedToReadScreen(mainScreenVM: MainScreenVM) {
+    val viewModel: PlannedToReadScreenVM = koinViewModel()
     val navigator = LocalNavigator.current
     val insets = LocalInsets.current
     Box(

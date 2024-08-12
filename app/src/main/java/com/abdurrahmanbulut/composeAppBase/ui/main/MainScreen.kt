@@ -1,5 +1,6 @@
 package com.abdurrahmanbulut.composeAppBase.ui.main
 
+import HandleEvent
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -27,7 +28,7 @@ import androidx.navigation.compose.rememberNavController
 import com.abdurrahmanbulut.composeAppBase.navigator.screen
 import com.abdurrahmanbulut.composeAppBase.navigator.screen.Screen
 import com.abdurrahmanbulut.composeAppBase.ui.main.home.HomeScreen
-import com.abdurrahmanbulut.composeAppBase.ui.utils.SingleEvent
+import com.abdurrahmanbulut.composeAppBase.ui.navigator
 import com.abdurrahmanbulut.sherlock.navigation.Navigation
 import com.abdurrahmanbulut.sherlock.navigation.Navigator
 import org.koin.androidx.compose.koinViewModel
@@ -49,16 +50,6 @@ fun NavGraphBuilder.mainScreen(
 fun NavGraphBuilder.mainNavGraph(mainScreenVM: MainScreenVM) {
     mainScreen(Screen.Main.Home.route) { HomeScreen(mainScreenVM) }
 //    mainScreen(Screen.Main.Settings.route) { SettingsScreen(mainScreenVM) }
-}
-
-@Composable
-fun Observe(viewmodel: MainScreenVM) {
-    SingleEvent(event = viewmodel.onFirst) {
-        viewmodel.navigator.navigate(Screen.Main.Home.route)
-    }
-//    SingleEvent(event = viewmodel.onSecond) {
-//        viewmodel.navigator.navigate(Screen.Main.Settings.route)
-//    }
 }
 
 @Composable
@@ -107,13 +98,26 @@ fun MainScreen() {
 }
 
 @Composable
+fun Observe(viewmodel: MainScreenVM) {
+    val navigator = navigator()
+    HandleEvent(viewmodel.test1) {
+    }
+
+    HandleEvent(viewmodel.test2) { p1, p2 ->
+    }
+    HandleEvent(viewmodel.test3) { p1, p2, p3 ->
+    }
+}
+
+@Composable
 fun NavigationBar(
     viewmodel: MainScreenVM,
     modifier: Modifier,
 ) {
     Row(
         modifier
-            .fillMaxWidth().background(Color.White)
+            .fillMaxWidth()
+            .background(Color.White)
             .height(100.dp),
     ) {
         Box(

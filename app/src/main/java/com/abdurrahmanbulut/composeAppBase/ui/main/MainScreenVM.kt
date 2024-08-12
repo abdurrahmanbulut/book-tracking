@@ -1,20 +1,22 @@
 package com.abdurrahmanbulut.composeAppBase.ui.main
 
+import EventHandler
 import androidx.lifecycle.ViewModel
-import com.abdurrahmanbulut.composeAppBase.ui.utils.createEvent
-import com.abdurrahmanbulut.composeAppBase.ui.utils.triggered
 import com.abdurrahmanbulut.sherlock.navigation.Navigator
 
 class MainScreenVM : ViewModel() {
-    val onFirst = createEvent()
-    val onSecond = createEvent()
+    val onFirst = EventHandler<Unit>()
+    val onSecond = EventHandler<Unit>()
+    val test1 = EventHandler<String>()
+    val test2 = EventHandler<Pair<String, String>>()
+    val test3 = EventHandler<Triple<String, String, String>>()
     lateinit var navigator: Navigator
 
     fun onClickFirst() {
-        onFirst.value = triggered
+        test1.trigger("test1")
     }
 
     fun onClickSecond() {
-        onSecond.value = triggered
+        test3.trigger("test1", "test2", "test3")
     }
 }

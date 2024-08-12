@@ -10,5 +10,4 @@ val repositoryModule =
         single { SplashRepository(get()) }
         single { DataStoreHelper(get()) }
         single { StockRepository(get()) }
-
     }

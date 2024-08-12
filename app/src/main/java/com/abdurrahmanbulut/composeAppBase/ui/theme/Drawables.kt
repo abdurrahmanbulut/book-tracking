@@ -11,5 +11,5 @@ open class Drawables {
 }
 
 class DrawablesLight : Drawables() {
-    override val example: Int = 0//drawable.something
+    override val example: Int = 0 // drawable.something
 }

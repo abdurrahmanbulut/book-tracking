@@ -52,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation(fileTree("../libs"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -71,9 +72,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.datastore)
-
-
-    implementation(fileTree("../libs"))
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)

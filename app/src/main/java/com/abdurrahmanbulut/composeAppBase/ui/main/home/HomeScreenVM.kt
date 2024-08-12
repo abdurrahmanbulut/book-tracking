@@ -19,10 +19,8 @@ class HomeScreenVM(private val splashRepository: SplashRepository) : ViewModel()
     private fun getFacts() {
         splashRepository.getFacts(viewModelScope)
             .success {
-                println(it)
             }
             .failure {
-                println(it)
             }
     }
 }

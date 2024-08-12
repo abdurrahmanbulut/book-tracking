@@ -13,7 +13,6 @@ data object LocalizationKeys {
     const val SELECT_LANGUAGE = "select_language"
 }
 
-
 val englishLocalization =
     mapOf(
         LocalizationKeys.WELCOME_MESSAGE to "WELCOME_MESSAGE",

@@ -5,6 +5,10 @@
 
 This is a starting point of any compose project. It includes my compose library named "Sherlock". 
 
+Design of this project (If you have any idea, you can put comments on it. It ll be really happy)
+- [Figma](https://www.figma.com/design/YuYiLARUMnt1UaTLVBz11E/Untitled?node-id=0-1&t=oOCO0gcl4Uh5umgc-1)
+
+
 ## Getting Started
 
 ### Prerequisites

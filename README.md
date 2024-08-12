@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is a starting point of any compose project. It includes my compose library named "Sherlock". 
+This is the book tracking project. It is currently being done on compose-app-base project and Sherlock library. 
 
 Design of this project (This design is in development. If you have any ideas, you can put comments on it. It ll make me really happy)
 - [Figma](https://www.figma.com/design/YuYiLARUMnt1UaTLVBz11E/Untitled?node-id=0-1&t=oOCO0gcl4Uh5umgc-1)
@@ -21,7 +21,7 @@ Design of this project (This design is in development. If you have any ideas, yo
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/abdurrahmambulut/compose-app-base.git
+    git clone https://github.com/abdurrahmambulut/book-tracking.git
     ```
 2. Open the project in Android Studio.
 3. Sync the project with Gradle files.

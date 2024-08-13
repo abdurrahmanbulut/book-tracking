@@ -1,13 +1,14 @@
 package com.abdurrahmanbulut.composeAppBase.ui.main
 
-import EventHandler
 import androidx.lifecycle.ViewModel
 import com.abdurrahmanbulut.sherlock.navigation.Navigator
+import createEvent
 
 class MainScreenVM : ViewModel() {
-    val navigateToHome = EventHandler<Unit>()
-    val navigateToPlannedToRead = EventHandler<Unit>()
-    val navigateToAllBooks = EventHandler<Unit>()
+    val navigateToHome = createEvent()
+    val navigateToPlannedToRead = createEvent()
+    val navigateToAllBooks = createEvent()
+
     lateinit var navigator: Navigator
 
     fun onClickHome() {

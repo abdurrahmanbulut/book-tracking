@@ -113,10 +113,9 @@ fun Observe(viewmodel: MainScreenVM) {
     val navigator = navigator()
 
     HandleEvent(viewmodel.navigateToHome) {
-//        viewmodel.navigator.navigate(Screen.Main.)
+        viewmodel.navigator.popAllAndNavigate(Screen.Main.Home.route)
     }
     HandleEvent(viewmodel.navigateToPlannedToRead) {
-        println("adf")
         viewmodel.navigator.navigate(Screen.Main.PlannedToRead.route)
     }
     HandleEvent(viewmodel.navigateToAllBooks) {

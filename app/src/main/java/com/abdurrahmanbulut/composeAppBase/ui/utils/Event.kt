@@ -90,6 +90,11 @@ class EventHandler<T> {
     }
 }
 
+fun createEvent() = EventHandler<Unit>()
+fun <T1, T2> createEventWithTwoArg() = EventHandler<Pair<T1, T2>>()
+fun <T1, T2, T3> createEventWithThreeArg() = EventHandler<Triple<T1, T2, T3>>()
+
+
 sealed class Event<T> {
     class NoArgTriggered<T> : Event<T>()
 

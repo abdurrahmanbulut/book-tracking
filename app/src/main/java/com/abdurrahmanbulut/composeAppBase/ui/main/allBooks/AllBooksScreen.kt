@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -51,6 +53,7 @@ fun AllBooksScreen(mainScreenVM: MainScreenVM) {
     ) {
         Column(Modifier.fillMaxSize()) {
             Toolbar(viewModel.title, Modifier.padding(horizontal = 32.dp))
+            Categories(viewModel)
             Content(viewModel)
         }
     }
@@ -64,12 +67,40 @@ fun HandleEvents(viewmodel: AllBooksScreenVM) {
         navigator.navigate(Screen.BookDetail.route, arg = it)
     }
 }
+
+@Composable
+fun Categories(viewmodel: AllBooksScreenVM) {
+    LazyRow(
+        Modifier
+            .fillMaxWidth()
+            .padding(top = 4.dp)) {
+        itemsIndexed(viewmodel.bookCategories) { index, item ->
+            Box(
+                modifier = Modifier
+                    .padding(
+                        top = 8.dp,
+                        end = if (index == viewmodel.bookCategories.lastIndex) 32.dp else 12.dp,
+                        start = if (index == 0) 32.dp else 0.dp
+                    )
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(Color(0XFFD0C7EA))
+                    .clickable { viewmodel.onClickCategory(item) }
+            ) {
+                Text(text = item, modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp))
+            }
+        }
+        item {
+            Spacer(modifier = Modifier.width(8.dp))
+        }
+    }
+}
+
 @Composable
 fun Content(viewmodel: AllBooksScreenVM) {
     val context = LocalContext.current
 
 
-    LazyColumn (modifier = Modifier.padding(top = 32.dp, bottom = 12.dp)){
+    LazyColumn(modifier = Modifier.padding(top = 4.dp, bottom = 12.dp)) {
         items(viewmodel.books?.items ?: emptyList()) {
             val detail = it.volumeInfo
             Row(
@@ -90,7 +121,7 @@ fun Content(viewmodel: AllBooksScreenVM) {
                 }
                 Spacer(modifier = Modifier.width(12.dp))
                 AsyncImage(
-                    model = detail.imageLinks?.thumbnail?.replace("http://", "https://") ,
+                    model = detail.imageLinks?.thumbnail?.replace("http://", "https://"),
                     contentDescription = "",
                     imageLoader = ImageLoader(context),
                     modifier = Modifier
@@ -100,7 +131,6 @@ fun Content(viewmodel: AllBooksScreenVM) {
                     contentScale = ContentScale.FillBounds
                 )
             }
-            Spacer(modifier = Modifier.height(12.dp))
         }
     }
 }

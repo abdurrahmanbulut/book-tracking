@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.navigation)
+    implementation(libs.animation)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.retrofit)
@@ -72,6 +73,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.datastore)
+    implementation(libs.coil)
 
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)

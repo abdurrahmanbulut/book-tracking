@@ -10,4 +10,6 @@ sealed class Screen(val route: String) {
 
         data object AllBooks : Screen("allBooks")
     }
+
+    data object BookDetail: Screen("bookDetail")
 }

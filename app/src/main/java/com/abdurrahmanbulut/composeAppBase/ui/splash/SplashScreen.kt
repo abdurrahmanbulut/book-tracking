@@ -16,14 +16,16 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 import kotlinx.coroutines.delay
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SplashScreen() {
     val navigator = navigator()
+    val viewModel: SplashViewModel = koinViewModel()
 
     LaunchedEffect(Unit) {
         delay(1500)
-        navigator.navigate(Screen.Main.route)
+        navigator.popAllAndNavigate(Screen.Main.route)
     }
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Content()
@@ -35,9 +37,9 @@ fun Content() {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.splash))
     LottieAnimation(
         modifier =
-            Modifier
-                .fillMaxSize()
-                .padding(horizontal = 60.dp),
+        Modifier
+            .fillMaxSize()
+            .padding(horizontal = 60.dp),
         composition = composition,
     )
 }
